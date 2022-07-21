@@ -121,19 +121,37 @@ class LectureSchedule extends StatelessWidget {
       List? teacherList, List? lectureTypeList) {
     return Container(
       child: DataTable(
+        columnSpacing: 0,
+        dataRowHeight: 90,
         columns: [
           DataColumn(
             label: Text('   '),
           ),
           DataColumn(
-            label: Text('月'),
+            label: Padding(
+              padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 25),
+              child: Text('月',)),
           ),
           DataColumn(
-            label: Text('火'),
+            label: Padding(
+              padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 25),
+              child: Text('火',)),
           ),
-          DataColumn(label: Text('水')),
-          DataColumn(label: Text('木')),
-          DataColumn(label: Text('金'))
+          DataColumn(
+            label: Padding(
+              padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 25),
+              child: Text('水',)),
+          ),
+          DataColumn(
+            label: Padding(
+              padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 25),
+              child: Text('木',)),
+          ),
+          DataColumn(
+            label: Padding(
+              padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 25),
+              child: Text('金',)),
+          ),
         ],
         rows: [
           DataRow(
@@ -197,12 +215,23 @@ class LectureSchedule extends StatelessWidget {
                       "$room",
                 )));
       },
-      child: Card(
-        color: (lectureType == 1)
-            ? Color.fromARGB(255, 69, 120, 161)
-            : Colors.white,
-        child: Text("$lectureName"),
-      ),
+      
+      child: SizedBox(
+        width: 65,
+        height: 300,
+        child: Card(
+          color: (lectureType == 1)
+              ? Color.fromARGB(255, 121, 185, 238)
+              : Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 0, right: 5, bottom: 0, left: 5),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text("$lectureName")
+            ),
+          ),
+        ),
+            ),
     );
   }
 }
