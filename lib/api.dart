@@ -18,7 +18,7 @@ Future callAPI() async {
   var url =
       Uri.parse('https://timetable-backend-kn.herokuapp.com/api/v1/get/csv/');
 
-  var request = new requestData(content: "goC.csv", date: "2022-08-29");
+  var request = new requestData(content: "goC.csv", date: "2022-09-04");
 
   final response =
       await http.post(url, body: json.encode(request.toJson()), headers: {
@@ -27,9 +27,9 @@ Future callAPI() async {
 
   if (response.statusCode == 200) {
     Map data = json.decode(response.body);
+    print(data);
     return data;
   } else {
     throw Exception('Failed');
   }
 }
-
